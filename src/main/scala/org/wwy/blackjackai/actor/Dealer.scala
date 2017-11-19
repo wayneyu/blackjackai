@@ -11,7 +11,7 @@ class Dealer(id: Int, chips: Int) extends Player(id, chips) {
 
   var deck = Deck()
 
-  val currentBets: mutable.Map[Player, Integer] = mutable.ListMap.empty()
+  val currentBets: mutable.Map[Player, Int] = mutable.ListMap(this -> chips)
 
   def setDeck(deck: Deck) = this.deck = deck
 
@@ -19,7 +19,10 @@ class Dealer(id: Int, chips: Int) extends Player(id, chips) {
 
   def hasMoreCards: Boolean = this.deck.cards.nonEmpty
 
-  def addBet(player: Player, amount: Int) = currentBets.put(player, amount)
+  def addBet(player: Player, amount: Int) = {
+    println(s"$player bets $amount")
+    currentBets += player -> amount
+  }
 
   def removePlayer(player: Player) = currentBets -= player
 

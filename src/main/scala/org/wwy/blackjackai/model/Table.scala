@@ -1,5 +1,7 @@
 package org.wwy.blackjackai.model
 
+import org.wwy.blackjackai.actor.Player
+
 import scala.collection.mutable.ListBuffer
 
 /**
